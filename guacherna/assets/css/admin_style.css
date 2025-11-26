@@ -1,0 +1,310 @@
+/* ========================================
+   ESTILOS ADICIONALES PARA OFERTAS Y PAGINACIÓN
+   AGREGAR AL ARCHIVO CSS PRINCIPAL
+   ======================================== */
+
+/* ==================== INDICADORES DE OFERTAS ==================== */
+
+/* Fila de producto en oferta */
+.producto-en-oferta {
+    background: linear-gradient(90deg, 
+        rgba(255, 193, 7, 0.05) 0%, 
+        rgba(255, 193, 7, 0.02) 50%, 
+        rgba(255, 193, 7, 0.05) 100%
+    );
+    border-left: 3px solid #ffc107 !important;
+}
+
+.producto-en-oferta:hover {
+    background: linear-gradient(90deg, 
+        rgba(255, 193, 7, 0.08) 0%, 
+        rgba(255, 193, 7, 0.05) 50%, 
+        rgba(255, 193, 7, 0.08) 100%
+    );
+}
+
+/* Badge de oferta en emoji */
+.producto-emoji {
+    position: relative;
+}
+
+.oferta-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 16px;
+    animation: pulso 2s infinite;
+}
+
+@keyframes pulso {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Badge de descuento */
+.badge-oferta {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(238, 90, 111, 0.3);
+    animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contenedor de precios con oferta */
+.precio-oferta-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.precio-original {
+    font-size: 14px;
+    color: #95a5a6;
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+.precio-oferta-valor {
+    font-size: 20px;
+    font-weight: 700;
+    color: #27ae60;
+    animation: resaltar 0.5s ease;
+}
+
+@keyframes resaltar {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Info de oferta en columna */
+.oferta-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.badge-oferta-activa {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(39, 174, 96, 0.3);
+}
+
+.badge-sin-oferta {
+    background: #ecf0f1;
+    color: #7f8c8d;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.oferta-fecha {
+    font-size: 11px;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* ==================== PAGINACIÓN ==================== */
+
+/* Contenedor de controles de paginación */
+.paginacion-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Botones de paginación */
+.paginacion-botones {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-paginacion {
+    padding: 8px 15px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    color: #2c3e50;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 40px;
+}
+
+.btn-paginacion:hover:not(:disabled) {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.btn-paginacion.active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.4);
+}
+
+.btn-paginacion:disabled {
+    background: #f5f5f5;
+    color: #bdc3c7;
+    border-color: #e0e0e0;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.paginacion-puntos {
+    padding: 0 8px;
+    color: #95a5a6;
+    font-weight: 600;
+}
+
+/* Info de paginación */
+.paginacion-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#infoPaginacion {
+    font-size: 14px;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+/* Select de productos por página */
+.productos-por-pagina-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.productos-por-pagina-container label {
+    font-size: 14px;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+#productosPorPagina {
+    padding: 6px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#productosPorPagina:hover {
+    border-color: #3498db;
+}
+
+#productosPorPagina:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* ==================== RESPONSIVO ==================== */
+
+@media (max-width: 768px) {
+    .paginacion-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .paginacion-botones {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .btn-paginacion {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .precio-oferta-container {
+        gap: 2px;
+    }
+    
+    .precio-original {
+        font-size: 12px;
+    }
+    
+    .precio-oferta-valor {
+        font-size: 16px;
+    }
+    
+    .badge-oferta {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+}
+
+/* ==================== ANIMACIONES ADICIONALES ==================== */
+
+/* Efecto de destello para ofertas nuevas */
+@keyframes destello-oferta {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 15px 5px rgba(255, 193, 7, 0.2);
+    }
+}
+
+.producto-en-oferta.nueva-oferta {
+    animation: destello-oferta 2s ease-in-out 3;
+}
+
+/* Transición suave al cambiar de página */
+tbody {
+    transition: opacity 0.3s ease;
+}
+
+tbody.cargando {
+    opacity: 0.5;
+}

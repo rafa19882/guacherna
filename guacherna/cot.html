@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización #COT-2025-032</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        /* CONFIGURACIÓN PARA IMPRESIÓN */
+        @page {
+            size: letter;
+            margin: 0.8cm 0.8cm;
+        }
+        
+        @media print {
+            body { 
+                font-family: 'Poppins', Arial, sans-serif;
+                font-size: 9pt;
+                line-height: 1.3;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                background: #ffffff;
+            }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+            .avoid-break { page-break-inside: avoid; }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.5;
+            padding: 20px;
+        }
+        
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        /* HEADER */
+        .document-header {
+            background: #ffffff;
+            color: #2d2d2d;
+            padding: 20px 25px 15px 25px;
+            position: relative;
+            border-bottom: 3px solid #D97757;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .company-info h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+            color: #D97757;
+        }
+        
+        .company-info p {
+            font-size: 11px;
+            color: #666;
+            margin: 2px 0;
+        }
+        
+        .quotation-label {
+            background: #FFF5F0;
+            border: 2px solid #D97757;
+            padding: 8px 15px;
+            border-radius: 6px;
+            text-align: right;
+        }
+        
+        .quotation-label h2 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #D97757;
+            margin-bottom: 2px;
+        }
+        
+        .quotation-label p {
+            font-size: 10px;
+            color: #666;
+        }
+        
+        .header-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .info-block h3 {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #D97757;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .info-block p {
+            font-size: 11px;
+            margin: 2px 0;
+            color: #333;
+        }
+        
+        /* CONTENT */
+        .document-content {
+            padding: 20px 25px;
+        }
+        
+        .section {
+            margin-bottom: 18px;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2d2d2d;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #D97757;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section-title i {
+            color: #D97757;
+            font-size: 12px;
+        }
+        
+        /* TABLA DE ITEMS */
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        
+        .items-table thead {
+            background: #D97757;
+            color: white;
+        }
+        
+        .items-table th {
+            padding: 8px 8px;
+            text-align: left;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        
+        .items-table th:last-child,
+        .items-table td:last-child {
+            text-align: right;
+        }
+        
+        .items-table td {
+            padding: 8px 8px;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 11px;
+        }
+        
+        .items-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .item-code {
+            background: #D97757;
+            color: #FFFFFF;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 9px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+        
+        .item-description {
+            font-weight: 600;
+            color: #2d2d2d;
+            font-size: 11px;
+        }
+        
+        .item-details {
+            font-size: 10px;
+            color: #666;
+            margin-top: 2px;
+        }
+        
+        /* TOTALES */
+        .totals-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border: 2px solid #e8e8e8;
+            margin-bottom: 18px;
+        }
+        
+        .totals-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 12px;
+        }
+        
+        .totals-row.subtotal {
+            color: #666;
+            border-bottom: 1px solid #d0d0d0;
+            padding-bottom: 6px;
+            margin-bottom: 4px;
+        }
+        
+        .totals-row.discount {
+            color: #10B981;
+            font-weight: 600;
+        }
+        
+        .totals-row.tax {
+            color: #666;
+            border-bottom: 1px solid #d0d0d0;
+            padding-bottom: 6px;
+            margin-bottom: 4px;
+        }
+        
+        .totals-row.grand-total {
+            font-size: 16px;
+            font-weight: 800;
+            color: #2d2d2d;
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 6px;
+            border: 2px solid #D97757;
+        }
+        
+        .totals-row.grand-total .amount {
+            color: #D97757;
+        }
+        
+        /* NOTAS */
+        .notes-section {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .notes-section h4 {
+            font-size: 12px;
+            color: #D97757;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .notes-section h4 i {
+            font-size: 11px;
+        }
+        
+        .notes-section p, .notes-section ul {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .notes-section ul {
+            margin-left: 18px;
+        }
+        
+        .notes-section li {
+            margin-bottom: 3px;
+        }
+        
+        /* FOOTER */
+        .document-footer {
+            background: #2d2d2d;
+            color: white;
+            padding: 15px 25px;
+            text-align: center;
+        }
+        
+        .footer-info p {
+            font-size: 10px;
+            margin: 2px 0;
+            color: #f0f0f0;
+        }
+        
+        .footer-info p strong {
+            color: #D97757;
+            font-size: 11px;
+        }
+        
+        /* BADGES */
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-badge.valid {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+            border: 2px solid #10B981;
+        }
+        
+        .status-badge.expired {
+            background: rgba(239, 68, 68, 0.2);
+            color: #EF4444;
+            border: 2px solid #EF4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="document-container">
+        <!-- HEADER -->
+        <div class="document-header">
+            <div class="header-top">
+                <div class="company-info">
+                    <h1>vxplay.online</h1>
+                    <p><i class="fas fa-map-marker-alt"></i> Barranquilla, Colombia</p>
+                    <p><i class="fas fa-phone"></i> +57 312 219 8638</p>
+                    <p><i class="fas fa-envelope"></i> vxplay.online@gmail.com</p>
+                </div>
+                
+                <div class="quotation-label">
+                    <h2>COT-2025-032</h2>
+                    <p>Cotización</p>
+                </div>
+            </div>
+            
+            <div class="header-info-grid">
+                <div class="info-block">
+                    <h3>Cliente</h3>
+                    <p><strong>Guacherna Burgers</strong></p>
+                    <p>+57 311 757 0862</p>
+                </div>
+                
+                <div class="info-block">
+                    <h3>Detalles de la Cotización</h3>
+                    <p><strong>Fecha:</strong> 30 de Octubre, 2025</p>
+                    <p><strong>Válido hasta:</strong> 29 de Noviembre, 2025</p>
+                    <p><strong>Estado:</strong> <span class="status-badge valid">VIGENTE</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CONTENIDO -->
+        <div class="document-content">
+            
+            <!-- DESCRIPCIÓN DEL PROYECTO -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-file-alt"></i>
+                    Descripción del Proyecto
+                </div>
+                <p style="font-size: 11px; color: #666; line-height: 1.6;">
+                    Desarrollo e implementación de sistema modular para gestión de pedidos del restaurante, 
+                    incluyendo módulos del flujo, vista por roles y panel administrativo. 
+                    Incluye diseño UI/UX personalizado, desarrollo frontend y backend, base de datos 
+                    optimizada y hosting en servidor dedicado por 12 meses.
+                </p>
+            </div>
+            
+            <!-- ITEMS DE LA COTIZACIÓN -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-list"></i>
+                    Detalle de Servicios
+                </div>
+                
+                <table class="items-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Descripción</th>
+                            <th style="width: 10%;">Cant.</th>
+                            <th style="width: 15%;">Precio Unit.</th>
+                            <th style="width: 10%;">Desc.</th>
+                            <th style="width: 15%;">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="item-code">DEVELOPMENT</span>
+                                <div class="item-description">Desarollo Web App</div>
+                                <div class="item-details">Desarrollo de sistema de gestión de pedidos a medida</div>
+                            </td>
+                            <td>1</td>
+                            <td>$450.000,00</td>
+                            <td>0%</td>
+                            <td>$450.000,00</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <span class="item-code">DOMINIO</span>
+                                <div class="item-description">Dominio (.online)</div>
+                                <div class="item-details">Dirección .online (Solo se paga 1 vez cada 12 meses)</div>
+                            </td>
+                            <td>1</td>
+                            <td>$62.000,00</td>
+                            <td>0%</td>
+                            <td>$62.000,00</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <span class="item-code">HOSTING</span>
+                                <div class="item-description">Alojamiento</div>
+                                <div class="item-details">Servidor dedicado, SSL, CDN, Arriendo Mensual</div>
+                            </td>
+                            <td>1</td>
+                            <td>$180.000,00</td>
+                            <td>100%</td>
+                            <td>$0,00</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <span class="item-code">DB</span>
+                                <div class="item-description">Base de Datos</div>
+                                <div class="item-details">Mantenimiento y copia de seguridad (pago mensual)</div>
+                            </td>
+                            <td>1</td>
+                            <td>$50.000,00</td>
+                            <td>100%</td>
+                            <td>$0,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- TOTALES -->
+            <div class="totals-section avoid-break">
+                <div class="totals-row subtotal">
+                    <span>Subtotal:</span>
+                    <span>$742.000,00</span>
+                </div>
+                
+                <div class="totals-row discount">
+                    <span>Descuento (0%):</span>
+                    <span>-$230.000,00</span>
+                </div>
+                
+                <div class="totals-row tax">
+                    <span>IVA (19%):</span>
+                    <span>$0,00</span>
+                </div>
+                
+                <div class="totals-row grand-total">
+                    <span>TOTAL A PAGAR:</span>
+                    <span class="amount">$512.000,00 COP</span>
+                </div>
+            </div>
+            
+            <!-- NOTAS Y TÉRMINOS -->
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    Términos y Condiciones
+                </div>
+                
+                <div class="notes-section">
+                    <h4><i class="fas fa-credit-card"></i> Forma de Pago</h4>
+                    <ul>
+                        <li>50% de anticipo para iniciar el proyecto</li>
+                        <li>50% restante contra entrega final</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 12px;"><i class="fas fa-clock"></i> Tiempo de Entrega</h4>
+                    <p>El proyecto se entregará en un plazo de <strong>60 días hábiles</strong> a partir de la recepción del anticipo y la información necesaria.</p>
+                    
+                    <h4 style="margin-top: 12px;"><i class="fas fa-shield-alt"></i> Garantía y Soporte</h4>
+                    <ul>
+                        <li>3 meses de garantía contra defectos de programación</li>
+                        <li>El pago de Alojamiento y mantenimientos está incluido en el pago del primer mes, luego de ello se cobra estos items mensualmente.</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 12px;"><i class="fas fa-file-contract"></i> Observaciones</h4>
+                    <p>Esta cotización tiene una validez de 30 días a partir de su fecha de emisión. Los precios están sujetos a cambios si se solicitan funcionalidades adicionales no contempladas en este documento.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div class="document-footer">
+            <div class="footer-info">
+                <p><strong>vxplay.online</strong></p>
+                <p>Calle 65 #41-41, Barranquilla - Colombia | Tel: +57 312 219 8638</p>
+                <p>vxplay.online@gmail.com</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function sendEmail() {
+            alert('Función para enviar por email. Aquí puedes integrar tu sistema de envío de correos.');
+        }
+        
+        // Auto-print cuando se abre con parámetro ?print=true
+        if (window.location.search.includes('print=true')) {
+            window.print();
+        }
+    </script>
+</body>
+</html>

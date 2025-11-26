@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comanda #123</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+            padding: 8px;
+            width: 80mm;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+            }
+            
+            @page {
+                margin: 0;
+                size: 80mm auto;
+            }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        
+        .restaurant {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .subtitle {
+            font-size: 11px;
+            margin-top: 2px;
+        }
+        
+        .separator {
+            border-bottom: 1px dashed #000;
+            margin: 8px 0;
+        }
+        
+        .order-number {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin: 8px 0;
+        }
+        
+        .priority {
+            text-align: center;
+            font-weight: bold;
+            font-size: 13px;
+            margin: 8px 0;
+            padding: 5px 0;
+            background: #000;
+            color: #fff;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 3px 0;
+            font-size: 11px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0 5px 0;
+            font-size: 13px;
+        }
+        
+        .items-list {
+            white-space: pre-line;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 10px;
+            border-top: 1px dashed #000;
+            padding-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="restaurant">GUACHERNA BURGERS</div>
+        <div class="subtitle">COMANDA DE COCINA</div>
+    </div>
+    
+    <div class="separator"></div>
+    
+    <div class="order-number">#123</div>
+    
+    <div class="separator"></div>
+    
+    <div class="priority">PREPARAR INMEDIATAMENTE</div>
+    
+    <div class="separator"></div>
+    
+    <div class="info-row">
+        <span>Fecha:</span>
+        <span>08/11/2025</span>
+    </div>
+    <div class="info-row">
+        <span>Hora:</span>
+        <span>14:30</span>
+    </div>
+    <div class="info-row">
+        <span>Estado:</span>
+        <span>PENDIENTE</span>
+    </div>
+    
+    <div class="separator"></div>
+    
+    <div class="section-title">ITEMS DEL PEDIDO</div>
+    
+    <div class="separator"></div>
+    
+    <div class="items-list">2x Hamburguesa Clásica
+   * Sin cebolla
+1x Papas Grandes
+3x Gaseosa
+   * Sin hielo</div>
+    
+    <div class="footer">
+        Verificar items
+    </div>
+</body>
+</html>

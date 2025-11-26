@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERSIÓN SIN EMOJIS - Siempre Funciona</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #27ae60;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: 800;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .alert {
+            background: #d4edda;
+            border: 3px solid #27ae60;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .alert h3 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .alert p {
+            color: #155724;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        
+        .mensaje-preview {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #27ae60;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 14px;
+            max-height: 600px;
+            overflow-y: auto;
+            color: #2c3e50;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 18px;
+            border: 3px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #27ae60;
+            box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.15);
+        }
+        
+        .btn-enviar {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #27ae60, #229954);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .btn-enviar:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(39, 174, 96, 0.5);
+        }
+        
+        .btn-enviar:active {
+            transform: translateY(-1px);
+        }
+        
+        .success {
+            background: #27ae60;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            text-align: center;
+            display: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ VERSIÓN SIN EMOJIS</h1>
+        <p class="subtitle">Garantizada al 100% - Funciona siempre</p>
+        
+        <div class="alert">
+            <h3>🎯 POR QUÉ ESTA VERSIÓN SÍ FUNCIONA:</h3>
+            <p>
+                <strong>Problema:</strong> Los emojis no funcionan porque el receptor no los soporta o hay problemas de encoding.
+                <br><br>
+                <strong>Solución:</strong> Esta versión usa SOLO texto, asteriscos para negritas y líneas de separación. 
+                Se ve profesional y funciona en TODOS los dispositivos, versiones de WhatsApp y configuraciones.
+            </p>
+        </div>
+
+        <div class="mensaje-preview" id="mensajePreview"></div>
+
+        <div class="form-group">
+            <label for="telefono">📱 Número de WhatsApp (10 dígitos):</label>
+            <input 
+                type="tel" 
+                id="telefono" 
+                placeholder="3001234567" 
+                value="3001234567"
+                maxlength="10"
+            >
+        </div>
+
+        <button class="btn-enviar" onclick="enviarPrueba()">
+            📨 ENVIAR A WHATSAPP
+        </button>
+
+        <div class="success" id="success">
+            ✅ ¡Mensaje enviado! Verifica que se vea bien en WhatsApp.
+        </div>
+    </div>
+
+    <script>
+        function construirMensaje() {
+            const order = {
+                id: 123,
+                cliente: 'Juan Pérez',
+                direccion_entrega: 'Calle 45 #23-10',
+                numero_entrega: '',
+                total: 33000,
+                items: [
+                    { cantidad: 2, nombre: 'Hamburguesa Clásica', precio: 12500 },
+                    { cantidad: 1, nombre: 'Papas Fritas', precio: 8000 }
+                ],
+                metodo_pago: 'efectivo'
+            };
+
+            const fechaFormateada = '31/10/2025';
+            const horaFormateada = '14:30';
+
+            const listaProductos = order.items.map(item => 
+                `  ${item.cantidad}x ${item.nombre} - $${item.precio.toLocaleString('es-CO')}`
+            ).join('\n');
+
+            const instruccionesPago = order.metodo_pago === 'efectivo'
+                ? '*PAGO EN EFECTIVO* (contraentrega)\nTen el monto exacto listo para agilizar la entrega.'
+                : '*PAGO POR NEQUI*\nNumero: 302-366-3963\nEnvia tu comprobante de pago.';
+
+            const mensaje = `*GUACHERNA BURGERS*
+============================
+
+*TU PEDIDO ESTA LISTO!*
+
+PEDIDO #${order.id}
+Fecha: ${fechaFormateada}
+Hora: ${horaFormateada}
+
+CLIENTE: ${order.cliente}
+DIRECCION: ${order.direccion_entrega} ${order.numero_entrega}
+
+PRODUCTOS:
+${listaProductos}
+
+============================
+TOTAL A PAGAR: $${order.total.toLocaleString('es-CO')}
+============================
+
+${instruccionesPago}
+
+Gracias por tu compra!
+_Guacherna Burgers - Comida con sabor costeno_`;
+
+            return mensaje;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('mensajePreview').textContent = construirMensaje();
+        });
+
+        function enviarPrueba() {
+            const telefono = document.getElementById('telefono').value.replace(/[^0-9]/g, '');
+
+            if (telefono.length !== 10) {
+                alert('❌ Ingresa un número válido de 10 dígitos');
+                return;
+            }
+
+            const mensaje = construirMensaje();
+            const mensajeCodificado = encodeURIComponent(mensaje);
+            const whatsappURL = `https://wa.me/57${telefono}?text=${mensajeCodificado}`;
+
+            window.open(whatsappURL, '_blank');
+
+            document.getElementById('success').style.display = 'block';
+        }
+
+        document.getElementById('telefono').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                enviarPrueba();
+            }
+        });
+    </script>
+</body>
+</html>
